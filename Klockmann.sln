@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klockmann.BotHelper", "Klockmann.BotHelper\Klockmann.BotHelper.csproj", "{91ED1EBB-7702-4CAA-AA67-7453348EADAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klockmann.Parsing", "Klockmann.Parsing\Klockmann.Parsing.csproj", "{4F87648E-0D4F-4DD1-B350-32BCD71F345F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91ED1EBB-7702-4CAA-AA67-7453348EADAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91ED1EBB-7702-4CAA-AA67-7453348EADAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91ED1EBB-7702-4CAA-AA67-7453348EADAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91ED1EBB-7702-4CAA-AA67-7453348EADAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F87648E-0D4F-4DD1-B350-32BCD71F345F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F87648E-0D4F-4DD1-B350-32BCD71F345F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F87648E-0D4F-4DD1-B350-32BCD71F345F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F87648E-0D4F-4DD1-B350-32BCD71F345F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

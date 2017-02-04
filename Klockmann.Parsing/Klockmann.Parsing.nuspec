@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Klockmann.Parsing</id>
+    <version>1.0.5</version>
+    <title>Klockmann BotHelper</title>
+    <authors>Maximilian Klockmann</authors>
+    <owners>Maximilian Klockmann</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Some Classes to parse a csv file or a html page.</description>
+    <copyright>Copyright 2017</copyright>
+  </metadata>
+</package>

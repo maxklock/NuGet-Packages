@@ -2,8 +2,8 @@
 <package >
   <metadata>
     <id>Klockmann.Parsing</id>
-    <version>1.0.5</version>
-    <title>Klockmann BotHelper</title>
+    <version>1.0.6</version>
+    <title>Klockmann Parsing</title>
     <authors>Maximilian Klockmann</authors>
     <owners>Maximilian Klockmann</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

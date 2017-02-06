@@ -9,6 +9,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Some Classes to parse csv, html or xml files.</description>
     <copyright>Copyright 2017</copyright>
+    <projectUrl>https://github.com/maxklock/NuGet-Packages/tree/master/Klockmann.Parsing</projectUrl>
   </metadata>
   <files>
     <file src="bin\Release\Klockmann.Parsing.dll" target="lib" />

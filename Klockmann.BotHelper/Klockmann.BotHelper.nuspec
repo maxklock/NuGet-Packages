@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Klockmann.BotHelper</id>
-    <version>0.9.2</version>
+    <version>0.9.3</version>
     <title>Klockmann BotHelper</title>
     <authors>Maximilian Klockmann</authors>
     <owners>Maximilian Klockmann</owners>
@@ -10,4 +10,11 @@
     <description>Some Classes to create a command driven bot with the Microsoft BotFramework and some helpfull extensions.</description>
     <copyright>Copyright 2017</copyright>
   </metadata>
+  <dependencies>
+    <dependency id="Microsoft.Bot.Builder" version="3.5.1" />
+    <dependency id="Newtonsoft.Json" version="8.0.3" />
+  </dependencies>
+  <files>
+    <file src="bin\Release\Klockmann.BotHelper.dll" target="lib" />
+  </files>
 </package>

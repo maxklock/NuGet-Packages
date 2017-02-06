@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Klockmann.Parsing</id>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <title>Klockmann Parsing</title>
     <authors>Maximilian Klockmann</authors>
     <owners>Maximilian Klockmann</owners>
@@ -11,6 +11,6 @@
     <copyright>Copyright 2017</copyright>
   </metadata>
   <files>
-    <file src="bin\Release\*.dll" target="lib" />
+    <file src="bin\Release\Klockmann.Parsing.dll" target="lib" />
   </files>
 </package>

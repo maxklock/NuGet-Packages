@@ -9,6 +9,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Some Classes to create a command driven bot with the Microsoft BotFramework and some helpfull extensions.</description>
     <copyright>Copyright 2017</copyright>
+    <dependencies>
+      <dependency id="Microsoft.Bot.Builder" version="3.5.1" />
+      <dependency id="Newtonsoft.Json" version="8.0.3" />
+    </dependencies>
   </metadata>
   <files>
     <file src="bin\Release\Klockmann.BotHelper.dll" target="lib" />

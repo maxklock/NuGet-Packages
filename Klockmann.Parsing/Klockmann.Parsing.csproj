@@ -49,6 +49,10 @@
     <Compile Include="Html\HtmlParser.cs" />
     <Compile Include="Html\HtmlTag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xml\BaseXmlPart.cs" />
+    <Compile Include="Xml\XmlParser.cs" />
+    <Compile Include="Xml\XmlContent.cs" />
+    <Compile Include="Xml\XmlTag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Klockmann.Parsing.nuspec" />

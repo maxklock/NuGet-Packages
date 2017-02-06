@@ -10,4 +10,7 @@
     <description>Some Classes to parse a csv file or a html page.</description>
     <copyright>Copyright 2017</copyright>
   </metadata>
+  <files>
+    <file src="bin\Release\*.dll" target="lib" />
+  </files>
 </package>

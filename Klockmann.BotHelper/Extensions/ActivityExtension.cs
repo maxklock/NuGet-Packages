@@ -19,6 +19,7 @@
 
         public static string GetCommand(this Activity activity)
         {
+            if (activity.Text == null) return null;
             var command = activity.Text.Split(SplitCharacter)[0];
             return !command.StartsWith(CommandPrefix) ? null : command.Split(MentionCharacter)[0].Substring(CommandPrefix.Length);
         }

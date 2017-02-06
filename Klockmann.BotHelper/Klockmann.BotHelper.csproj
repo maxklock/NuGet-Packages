@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Channels\Telegram.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="CommandHelp.cs" />
     <Compile Include="CommandList.cs" />

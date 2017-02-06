@@ -7,7 +7,7 @@
     <authors>Maximilian Klockmann</authors>
     <owners>Maximilian Klockmann</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Some Classes to parse a csv file or a html page.</description>
+    <description>Some Classes to parse csv, html or xml files.</description>
     <copyright>Copyright 2017</copyright>
   </metadata>
   <files>

@@ -1,6 +1,7 @@
 # Klockmann Nuget Packages
 
 ## Klockmann.BotHelper
+[![build](https://klockmann.visualstudio.com/_apis/public/build/definitions/0bc93951-0156-493b-9a24-221b9ee1eb1b/15/badge)](https://www.nuget.org/packages/Klockmann.BotHelper/)
 
 Some Classes to create a command driven bot with the Microsoft BotFramework and some helpfull extensions.
 
@@ -62,6 +63,7 @@ Style a given string with Markdown.
     }
 
 ## Klockmann.Parsing
+[![build](https://klockmann.visualstudio.com/_apis/public/build/definitions/0bc93951-0156-493b-9a24-221b9ee1eb1b/14/badge)](https://www.nuget.org/packages/Klockmann.Parsing/)
 
 Some Classes to parse csv, html or xml files.
 

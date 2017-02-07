@@ -45,6 +45,22 @@ Style a given string with Markdown.
         await activity.GetConnectorClient().Conversations.ReplyToActivityAsync(reply);
     }
 
+    var location = Telegram.GetLocation(activity);
+    if (location != null)
+    {
+        var reply = activity.CreateReply();
+        reply.ChannelData = Telegram.SendLocation(location);
+        await activity.GetConnectorClient().Conversations.ReplyToActivityAsync(reply);
+    }
+    
+    var contact = Telegram.GetContact(activity);
+    if (contact != null)
+    {
+        var reply = activity.CreateReply();
+        reply.ChannelData = Telegram.SendContact(contact);
+        await activity.GetConnectorClient().Conversations.ReplyToActivityAsync(reply);
+    }
+
 ## Klockmann.Parsing
 
 Some Classes to parse csv, html or xml files.

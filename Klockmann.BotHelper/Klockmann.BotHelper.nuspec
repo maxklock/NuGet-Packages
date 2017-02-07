@@ -2,12 +2,12 @@
 <package >
   <metadata>
     <id>Klockmann.BotHelper</id>
-    <version>0.9.5</version>
+    <version>1.0.0</version>
     <title>Klockmann BotHelper</title>
     <authors>Maximilian Klockmann</authors>
     <owners>Maximilian Klockmann</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Some Classes to create a command driven bot with the Microsoft BotFramework and some helpfull extensions.</description>
+    <description>Some Classes to create a command driven bot with the Microsoft BotFramework and some helpfull extensions. Now with Telegram Helper</description>
     <copyright>Copyright 2017</copyright>
     <projectUrl>https://github.com/maxklock/NuGet-Packages/tree/master/Klockmann.BotHelper</projectUrl>
     <dependencies>

@@ -97,6 +97,9 @@
     <Compile Include="Extensions\ConversationExtension.cs" />
     <Compile Include="Extensions\MarkdownExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\Telegram\ChatAction.cs" />
+    <Compile Include="Types\Telegram\Contact.cs" />
+    <Compile Include="Types\Telegram\Location.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

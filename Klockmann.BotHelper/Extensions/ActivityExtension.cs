@@ -48,8 +48,31 @@
 
         public static string[] GetParameters(this Activity activity)
         {
-            var parts = activity.Text.Split(SplitCharacter);
-            return parts.Skip(1).ToArray();
+            var parts = activity.Text.Split(SplitCharacter).Skip(1).ToList();
+            var parameters = new List<string>();
+            
+            while (parts.Any())
+            {
+                var part = parts.First();
+                if (part.StartsWith("\""))
+                {
+                    var str = part.Substring(1);
+                    while (!parts.First().EndsWith("\""))
+                    {
+                        parts.RemoveAt(0);
+                        str += " " + parts.First();
+                    }
+                    str = str.Substring(0, str.Length - 1);
+                    parameters.Add(str);
+                }
+                else
+                {
+                    parameters.Add(part);
+                }
+                parts.RemoveAt(0);
+            }
+
+            return parameters.ToArray();
         }
 
         public static bool MatchMention(this Activity activity, string mention)

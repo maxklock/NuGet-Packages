@@ -1,41 +1,80 @@
 ﻿namespace Klockmann.BotHelper
 {
-    using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
+    using System.Threading.Tasks;
 
-    public class CommandList : IList<Command>
+    using Klockmann.BotHelper.Extensions;
+
+    using Microsoft.Bot.Connector;
+
+    public class CommandList : IEnumerable
     {
         #region member vars
 
-        private readonly IList<Command> _data;
-
-        #endregion
-
-        #region constructors and destructors
-
-        public CommandList()
-        {
-            _data = new List<Command>();
-        }
-
-        public CommandList(IEnumerable<Command> commands)
-        {
-            _data = new List<Command>(commands);
-        }
+        private readonly IDictionary<string, ICollection<Parameters>> _data = new Dictionary<string, ICollection<Parameters>>();
 
         #endregion
 
         #region explicit interfaces
 
-        public void Add(Command item)
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            if (_data.Any(c => c.Name == item.Name))
+            return ((IEnumerable)_data).GetEnumerator();
+        }
+
+        #endregion
+
+        #region methods
+
+        public void Add(string command, Parameters parameters)
+        {
+            if (_data.ContainsKey(command))
             {
-                throw new ArgumentException($"Command with name \"{item.Name}\" already in the list!", nameof(item));
+                _data[command].Add(parameters);
+                return;
             }
-            _data.Add(item);
+
+            _data.Add(
+                command,
+                new List<Parameters>()
+                {
+                    parameters
+                });
+        }
+
+        public Task<bool> InvokeAsync(Activity activity)
+        {
+            return Task.Run(
+                () =>
+                {
+                    var com = activity.GetCommand();
+                    if (!ContainsCommand(com))
+                    {
+                        return false;
+                    }
+
+                    foreach (var parameterList in this[com])
+                    {
+                        object[] values;
+                        if (!parameterList.TryConvert(activity.GetParameters(), out values))
+                        {
+                            continue;
+                        }
+
+                        parameterList.Callback?.Invoke(
+                            new CommandCallback
+                            {
+                                Command = com,
+                                Activity = activity,
+                                ParameterListId = parameterList.Id,
+                                Parameters = values
+                            });
+                        return true;
+                    }
+
+                    return false;
+                });
         }
 
         public void Clear()
@@ -43,61 +82,27 @@
             _data.Clear();
         }
 
-        public bool Contains(Command item)
+        public bool ContainsCommand(string command)
         {
-            return _data.Contains(item);
+            return _data.ContainsKey(command);
         }
 
-        public void CopyTo(Command[] array, int arrayIndex)
+        public bool Remove(string command)
         {
-            _data.CopyTo(array, arrayIndex);
+            return _data.Remove(command);
         }
+
+        #endregion
+
+        #region properties
 
         public int Count => _data.Count;
 
-        public bool IsReadOnly => _data.IsReadOnly;
+        public IEnumerable<Parameters> this[string command] => _data[command];
 
-        public bool Remove(Command item)
-        {
-            return _data.Remove(item);
-        }
+        public IEnumerable<string> Keys => _data.Keys;
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable)_data).GetEnumerator();
-        }
-
-        public IEnumerator<Command> GetEnumerator()
-        {
-            return _data.GetEnumerator();
-        }
-
-        public int IndexOf(Command item)
-        {
-            return _data.IndexOf(item);
-        }
-
-        public void Insert(int index, Command item)
-        {
-            _data.Insert(index, item);
-        }
-
-        public Command this[int index]
-        {
-            get
-            {
-                return _data[index];
-            }
-            set
-            {
-                _data[index] = value;
-            }
-        }
-
-        public void RemoveAt(int index)
-        {
-            _data.RemoveAt(index);
-        }
+        public IEnumerable<IEnumerable<Parameters>> Values => _data.Values;
 
         #endregion
     }

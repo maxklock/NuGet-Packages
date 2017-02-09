@@ -89,13 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Channels\Telegram.cs" />
-    <Compile Include="Command.cs" />
-    <Compile Include="CommandHelp.cs" />
-    <Compile Include="CommandList.cs" />
     <Compile Include="Extensions\ActivityExtension.cs" />
-    <Compile Include="Extensions\CommandExtension.cs" />
     <Compile Include="Extensions\ConversationExtension.cs" />
     <Compile Include="Extensions\MarkdownExtension.cs" />
+    <Compile Include="CommandCallback.cs" />
+    <Compile Include="Parameters.cs" />
+    <Compile Include="CommandList.cs" />
+    <Compile Include="Types\ParameterType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\Telegram\ChatAction.cs" />
     <Compile Include="Types\Telegram\Contact.cs" />

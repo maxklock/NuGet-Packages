@@ -17,24 +17,32 @@ Style a given string with Markdown.
 
 #### Command Handling
 
-    var commands = new CommandList
+    var testCommands = new CommandList()
     {
-        new Command("command1",
-            async (a, c) =>
-            {
-                await a.GetConnectorClient().Conversations.ReplyToActivityAsync(a.CreateReply("You send command " + "one".MakeBold() + "."));
-            }),
-        new Command("command2",
-            async (a, c) =>
-            {
-                await a.GetConnectorClient().Conversations.ReplyToActivityAsync(a.CreateReply("You send command " + "one".MakeBold() + "."));
-            })
+        {
+            "test", new Parameters(
+                "test1",
+                async c =>
+                {
+                    await c.Activity.GetConnectorClient().Conversations.ReplyToActivityAsync(c.Activity.CreateReply("Any Parameter"));
+                })
+        },
+        {
+            "test", new Parameters(
+                "test2",
+                async c =>
+                {
+                    await c.Activity.GetConnectorClient().Conversations.ReplyToActivityAsync(c.Activity.CreateReply("Two Parameters: " + c.Parameters[0] + " " + c.Parameters[1]));
+                },
+                ParameterType.Integer,
+                ParameterType.Boolean)
+        }
     };
 
-    if (commands.MatchActivity(activity))
-        await commands.InvokeCallback(activity);
-    else if (activity.Text != null)
-        await connector.Conversations.ReplyToActivityAsync(activity.CreateReply("Unkown command!".AddLineBreak() + commands.CreateHelpString()));
+    if (!await testCommands.InvokeAsync(activity))
+    {
+        await activity.GetConnectorClient().Conversations.ReplyToActivityAsync(activity.CreateReply("No match!"));
+    }
 
 #### Telegram Channel
 

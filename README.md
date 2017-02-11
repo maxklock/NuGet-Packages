@@ -20,23 +20,31 @@ Style a given string with Markdown.
     var testCommands = new CommandList()
     {
         {
-            "test", new Parameters(
-                "test1",
+            "command1", new Parameters(
+                "command1-no",
                 async c =>
                 {
-                    await c.Activity.GetConnectorClient().Conversations.ReplyToActivityAsync(c.Activity.CreateReply("Any Parameter"));
+                    await c.Activity.GetConnectorClient().Conversations.ReplyToActivityAsync(c.Activity.CreateReply("1: No Parameter"));
                 })
         },
         {
-            "test", new Parameters(
-                "test2",
+            "command1", new Parameters(
+                "comand1-two",
                 async c =>
                 {
-                    await c.Activity.GetConnectorClient().Conversations.ReplyToActivityAsync(c.Activity.CreateReply("Two Parameters: " + c.Parameters[0] + " " + c.Parameters[1]));
+                    await c.Activity.GetConnectorClient().Conversations.ReplyToActivityAsync(c.Activity.CreateReply("1: Two Parameters: " + c.Parameters[0] + " " + c.Parameters[1]));
                 },
                 ParameterType.Integer,
                 ParameterType.Boolean)
-        }
+        },
+        {
+            "command2", new Parameters(
+                "command2",
+                async c =>
+                {
+                    await c.Activity.GetConnectorClient().Conversations.ReplyToActivityAsync(c.Activity.CreateReply("2: No Parameter"));
+                })
+        },
     };
 
     if (!await testCommands.InvokeAsync(activity))

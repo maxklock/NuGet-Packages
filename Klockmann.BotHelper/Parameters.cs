@@ -27,11 +27,6 @@
 
         public bool TryConvert(string[] parameters, out object[] values)
         {
-            if (Types.Length == 0)
-            {
-                values = parameters.Cast<object>().ToArray();
-                return true;
-            }
             if (parameters.Length != Types.Length)
             {
                 values = null;

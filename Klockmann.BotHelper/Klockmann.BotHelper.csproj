@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Channels\Telegram.cs" />
     <Compile Include="Extensions\ActivityExtension.cs" />
+    <Compile Include="Extensions\BotStateExtension.cs" />
     <Compile Include="Extensions\ConversationExtension.cs" />
     <Compile Include="Extensions\MarkdownExtension.cs" />
     <Compile Include="CommandCallback.cs" />

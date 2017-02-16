@@ -52,6 +52,12 @@ Style a given string with Markdown.
         await activity.GetConnectorClient().Conversations.ReplyToActivityAsync(activity.CreateReply("No match!"));
     }
 
+#### BotStateExtension
+
+    var data = activity.GetStateClient().BotState.GetUserDataProperty<PropertyType>(activity.ChannelId, activity.From.Id, "propertyKey");
+
+    activity.GetStateClient().BotState.SetUserDataProperty(activity.ChannelId, activity.From.Id, "propertyKey", data);
+
 #### Telegram Channel
 
     var sticker = Telegram.GetSticker(activity);
@@ -77,6 +83,10 @@ Style a given string with Markdown.
         reply.ChannelData = Telegram.SendContact(contact);
         await activity.GetConnectorClient().Conversations.ReplyToActivityAsync(reply);
     }
+
+    var reply = activity.CreateReply();
+    reply.ChannelData = Telegram.EditMessage(messageIdToChange, "New Message");
+    await activity.GetConnectorClient().Conversations.ReplyToActivityAsync(reply);
 
 ## Klockmann.Parsing
 [![build](https://klockmann.visualstudio.com/_apis/public/build/definitions/0bc93951-0156-493b-9a24-221b9ee1eb1b/14/badge)](https://www.nuget.org/packages/Klockmann.Parsing/)

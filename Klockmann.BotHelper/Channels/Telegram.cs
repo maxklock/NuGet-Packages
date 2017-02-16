@@ -66,6 +66,20 @@
             }
         }
 
+        public static object EditMessage(string messageId, string newText)
+        {
+            return JObject.FromObject(
+                new
+                {
+                    method = "editMessageText",
+                    parameters = new
+                    {
+                        message_id = messageId,
+                        text = newText
+                    }
+                });
+        }
+
         public static object SendChatAction(string action)
         {
             return JObject.FromObject(

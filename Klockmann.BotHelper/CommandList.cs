@@ -2,9 +2,11 @@
 {
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Klockmann.BotHelper.Extensions;
+    using Klockmann.BotHelper.Types;
 
     using Microsoft.Bot.Connector;
 
@@ -49,7 +51,7 @@
                 () =>
                 {
                     var com = activity.GetCommand();
-                    if (!ContainsCommand(com))
+                    if (com == null || !ContainsCommand(com))
                     {
                         return false;
                     }
@@ -57,7 +59,11 @@
                     foreach (var parameterList in this[com])
                     {
                         object[] values;
-                        if (!parameterList.TryConvert(activity.GetParameters(), out values))
+                        if (parameterList.Types.Length == 1 && parameterList.Types[0] == ParameterType.Any)
+                        {
+                            values = activity.GetParameters().Cast<object>().ToArray();
+                        }
+                        else if (!parameterList.TryConvert(activity.GetParameters(), out values))
                         {
                             continue;
                         }
